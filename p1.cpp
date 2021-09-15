@@ -64,7 +64,13 @@ int main(int argc, char* argv[]){
 
         totalBytesRcvd += numBytes;
         buffer[numBytes] = '\0';
+        fputs(buffer, stdout);
     }
+
+    fputc('\n', stdout);
+
+    close(sock);
+    exit(0);
 }
 
 
