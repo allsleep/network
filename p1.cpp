@@ -5,10 +5,11 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "p2.hpp"
 
 int main(int argc, char* argv[]){
    
-    if (agrc < 3 || argc > 4)
+    if (argc < 3 || argc > 4)
         DieWithUserMessage("Parameter(s)",
             "<Server Address> <Echo Word> [<Server Port>]");
     
@@ -16,13 +17,13 @@ int main(int argc, char* argv[]){
     char *echoString = argv[2];
     
     // third parm is optional, default parm is 7 that unknow port
-    in_port_t servPort = (argv == 4)? atoi(argv[3]) : 7;
+    in_port_t servPort = (argc == 4)? atoi(argv[3]) : 7;
 
     // create a reliable, stream socket using tcp
     int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
     if (sock < 0)
-        DieWithSystemMessage("socket() failed");
+        DieWithSystemMessage("socket() failed", " ");
     
     // construct the server address structure
     struct sockaddr_in servAddr;
@@ -34,20 +35,20 @@ int main(int argc, char* argv[]){
     if (rtnVal == 0)
         DieWithSystemMessage("inet_pton() failed", "invalid address string");
     else if (rtnVal < 0)
-        DieWithUserMessage("inget_potn() failed");
+        DieWithUserMessage("inget_potn() failed", " ");
 
     servAddr.sin_port = htons(servPort);
 
     // establish the connect to the echo server
     if (connect(sock, (struct sockaddr*) &servAddr, sizeof(servAddr)) < 0)
-        DieWithUserMessage("connect() failed");
+        DieWithUserMessage("connect() failed", " ");
     
     size_t echoStringLen = strlen(echoString);
 
     // send the string to the server
     ssize_t numBytes = send(sock, echoString, echoStringLen, 0);
     if (numBytes < 0)
-        DieWithSystemMessage("send() failed");
+        DieWithSystemMessage("send() failed", " ");
     else if (numBytes != echoStringLen)
         DieWithUserMessage("send()", "send unexperted number of bytes");
 
@@ -58,7 +59,7 @@ int main(int argc, char* argv[]){
         char buffer[BUFSIZE];
         numBytes = recv(sock, buffer, BUFSIZE - 1, 0);
         if (numBytes < 0)
-            DieWithSystemMessage("recv() failed");
+            DieWithSystemMessage("recv() failed", " ");
         else if (numBytes == 0)
             DieWithUserMessage("recv()", "connection closed prematurely");
 

@@ -153,6 +153,30 @@ p1.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/p1.dir/build.make CMakeFiles/p1.dir/p1.cpp.s
 .PHONY : p1.cpp.s
 
+p2.o: p2.cpp.o
+.PHONY : p2.o
+
+# target to build an object file
+p2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/p1.dir/build.make CMakeFiles/p1.dir/p2.cpp.o
+.PHONY : p2.cpp.o
+
+p2.i: p2.cpp.i
+.PHONY : p2.i
+
+# target to preprocess a source file
+p2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/p1.dir/build.make CMakeFiles/p1.dir/p2.cpp.i
+.PHONY : p2.cpp.i
+
+p2.s: p2.cpp.s
+.PHONY : p2.s
+
+# target to generate assembly for a file
+p2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/p1.dir/build.make CMakeFiles/p1.dir/p2.cpp.s
+.PHONY : p2.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... p1.o"
 	@echo "... p1.i"
 	@echo "... p1.s"
+	@echo "... p2.o"
+	@echo "... p2.i"
+	@echo "... p2.s"
 .PHONY : help
 
 

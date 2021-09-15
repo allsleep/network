@@ -81,12 +81,12 @@ clean: CMakeFiles/p1.dir/clean
 CMakeFiles/p1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/p1.dir/build.make CMakeFiles/p1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/p1.dir/build.make CMakeFiles/p1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Desktop/code/network/c/build/CMakeFiles --progress-num=1,2 "Built target p1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Desktop/code/network/c/build/CMakeFiles --progress-num=1,2,3 "Built target p1"
 .PHONY : CMakeFiles/p1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/p1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Desktop/code/network/c/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Desktop/code/network/c/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/p1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Desktop/code/network/c/build/CMakeFiles 0
 .PHONY : CMakeFiles/p1.dir/rule
