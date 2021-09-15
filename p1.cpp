@@ -50,6 +50,21 @@ int main(int argc, char* argv[]){
         DieWithSystemMessage("send() failed");
     else if (numBytes != echoStringLen)
         DieWithUserMessage("send()", "send unexperted number of bytes");
+
+    // recive the same string back from the serve
+    unsigned int totalBytesRcvd = 0;
+    fputs("Received: ", stdout);
+    while (totalBytesRcvd < echoStringLen){
+        char buffer[BUFSIZE];
+        numBytes = recv(sock, buffer, BUFSIZE - 1, 0);
+        if (numBytes < 0)
+            DieWithSystemMessage("recv() failed");
+        else if (numBytes == 0)
+            DieWithUserMessage("recv()", "connection closed prematurely");
+
+        totalBytesRcvd += numBytes;
+        buffer[numBytes] = '\0';
+    }
 }
 
 
