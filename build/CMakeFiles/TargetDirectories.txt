@@ -1,3 +1,0 @@
-/root/Desktop/code/network/c/build/CMakeFiles/rebuild_cache.dir
-/root/Desktop/code/network/c/build/CMakeFiles/edit_cache.dir
-/root/Desktop/code/network/c/build/CMakeFiles/p1.dir

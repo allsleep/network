@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/p1.dir/p1.cpp.o CMakeFiles/p1.dir/p2.cpp.o -o p1 
