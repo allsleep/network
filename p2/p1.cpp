@@ -1,10 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 #include "p2.hpp"
 
 static const int MAXPENDING = 5; // maximum outstanding connection requests
@@ -48,14 +41,14 @@ int main(int argc, char* argv[]){
 
         // clntSock is connected to a client
         
-        char clntName[INEF_ADDRESTRLEN]; // string to contain client address
-        if (inet_ntop(AF_INEF, &clntAddr.sin_addr.s_addr, clntName, sizeof(clntName)) != NULL)
+        char clntName[INET_ADDRSTRLEN]; // string to contain client address
+        if (inet_ntop(AF_INET, &clntAddr.sin_addr.s_addr, clntName, sizeof(clntName)) != NULL)
             // std::cout<<"Handling client "<<clntName<<ntohs(clntAddr.sin_port);
             ;
         else
             puts("unable to get client address");
 
-            HandleTCPClient(clntSock);
+        HandleTCPClient(clntSock);
     }
     // not reached
 }
