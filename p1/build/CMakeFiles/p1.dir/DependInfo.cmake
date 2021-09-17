@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/Desktop/code/network/c/p1.cpp" "CMakeFiles/p1.dir/p1.cpp.o" "gcc" "CMakeFiles/p1.dir/p1.cpp.o.d"
-  "/root/Desktop/code/network/c/p2.cpp" "CMakeFiles/p1.dir/p2.cpp.o" "gcc" "CMakeFiles/p1.dir/p2.cpp.o.d"
+  "/root/Desktop/code/network/c/p1/p1.cpp" "CMakeFiles/p1.dir/p1.cpp.o" "gcc" "CMakeFiles/p1.dir/p1.cpp.o.d"
+  "/root/Desktop/code/network/c/p1/p2.cpp" "CMakeFiles/p1.dir/p2.cpp.o" "gcc" "CMakeFiles/p1.dir/p2.cpp.o.d"
   )
 
 # Targets to which this target links.

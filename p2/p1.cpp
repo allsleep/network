@@ -1,5 +1,5 @@
 #include "p2.hpp"
-
+#include <iostream>
 static const int MAXPENDING = 5; // maximum outstanding connection requests
 
 int main(int argc, char* argv[]){
@@ -43,8 +43,8 @@ int main(int argc, char* argv[]){
         
         char clntName[INET_ADDRSTRLEN]; // string to contain client address
         if (inet_ntop(AF_INET, &clntAddr.sin_addr.s_addr, clntName, sizeof(clntName)) != NULL)
-            // std::cout<<"Handling client "<<clntName<<ntohs(clntAddr.sin_port);
-            ;
+            printf("Handling client %s/%d\n",clntName,ntohs(clntAddr.sin_port));
+            // std::cout<<"Handling client "<<clntName<<ntohs(clntAddr.sin_port); 
         else
             puts("unable to get client address");
 

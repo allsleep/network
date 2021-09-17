@@ -4,4 +4,6 @@ project(p1)
 
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(${PROJECT_NAME} p1.cpp p2.cpp)
+FILE(GLOB path ${PROJECT_SOURCE_DIR}/*.cpp)
+
+add_executable(${PROJECT_NAME} ${path})

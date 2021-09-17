@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/root/Desktop/code/network/c
+CXX_INCLUDES = -I/root/Desktop/code/network/c/p1
 
 CXX_FLAGS = 
 
