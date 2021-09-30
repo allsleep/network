@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
         return -1; // DieWithUserMessage("getaddrinfo() failed", "gai_strerror(rtnVal)");
     
     // display returned addresses
-    for (struct addrinfo *addr = addrList; addr != NULL, addr = addr->ai_next){
+    for (struct addrinfo *addr = addrList; addr != NULL; addr = addr->ai_next){
         PrintSocketAddress(addr->ai_addr, stdout);
         fputc('\n', stdout);
     }
