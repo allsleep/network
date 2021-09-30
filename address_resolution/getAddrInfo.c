@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <netdb.h>
+#include "../ip4server/client/clientErro.h"
 
 void PrintSocketAddress(const struct sockaddr *address, FILE *stream){
     if (address == NULL || stream == NULL)
         return;
     
-    void numericAddress; // pointer to binary address
+    void *numericAddress; // pointer to binary address
     // buffer to contain result , IPv6 sufficient to hold IPv4
     char addrBuffer[INET6_ADDRSTRLEN];
     in_port_t port; // port to print
@@ -24,7 +25,15 @@ void PrintSocketAddress(const struct sockaddr *address, FILE *stream){
             break;
         default:
             fputs("unknow type", stream);
-        return;
+            return;
+    }
+    // convert binary to printable address
+    if (inet_ntop(address->sa_family, numericAddress, addrBuffer, sizeof(addrBuffer)) == NULL)
+       fputs("invailed address", stream);
+    else{
+        fprintf(stream, "%s", addrBuffer);
+        if(port != 0)
+            fprintf(stream, "-%u", port);
     }
 }
 
