@@ -21,6 +21,16 @@ int SetupTCPClientSocket(const char *host, const char *service){
     int sock = -1;
     for (struct addrinfo *addr = servAddr; addr != NULL; addr->ai_next) {
         // create a reliable, stream socket using TCP
-        sock = socket(addr->ai_family, addr->ai_socktype)
+        sock = socket(addr->ai_family, addr->ai_socktype);
+        if (sock < 0) continue; // socket creation failed, try next address
+
+        // establish the connection to the echo server
+        if (connect(sock, addr->ai_addr, addr->ai_addrlen) == 0) break;
+
+        close(sock);
+        sock = -1;
     }
+    
+    freeaddrinfo(servAddr);
+    return sock;
 }
